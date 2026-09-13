@@ -2,7 +2,6 @@
 
 An enterprise-grade, portfolio-ready end-to-end data analytics and business intelligence system for an online retail store. Built using **Python**, **Pandas**, **SQL**, **Power BI**, and **Excel**, with an interactive executive **Web BI Dashboard**.
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-brightgreen.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-3.0-orange.svg)
 ![Database](https://img.shields.io/badge/SQLite-ANSI--SQL-blue.svg)
@@ -160,5 +159,3 @@ Features:
 
 ---
 
-## 📄 License
-This project is open source and available under the [MIT License](LICENSE).
