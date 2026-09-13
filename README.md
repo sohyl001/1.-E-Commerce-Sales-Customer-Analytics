@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Sales & Customer Analytics Platform (9.5/10)
+# 🛒 E-Commerce Sales & Customer Analytics Platform
 
 An enterprise-grade, portfolio-ready end-to-end data analytics and business intelligence system for an online retail store. Built using **Python**, **Pandas**, **SQL**, **Power BI**, and **Excel**, with an interactive executive **Web BI Dashboard**.
 
