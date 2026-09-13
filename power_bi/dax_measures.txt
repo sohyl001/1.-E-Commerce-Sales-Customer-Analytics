@@ -1,0 +1,222 @@
+// ==============================================================================
+// Power BI DAX Measures Reference Library
+// Project: E-Commerce Sales & Customer Analytics
+// ==============================================================================
+
+// ------------------------------------------------------------------------------
+// 1. CORE REVENUE & VOLUME MEASURES (Questions 1, 3, 5)
+// ------------------------------------------------------------------------------
+
+Total Gross Revenue = 
+CALCULATE(
+    SUM(order_items[total_item_price]),
+    orders[order_status] = "Completed"
+)
+
+Total Units Sold = 
+CALCULATE(
+    SUM(order_items[quantity]),
+    orders[order_status] = "Completed"
+)
+
+Total Completed Orders = 
+CALCULATE(
+    DISTINCTCOUNT(orders[order_id]),
+    orders[order_status] = "Completed"
+)
+
+Total Unique Customers = 
+CALCULATE(
+    DISTINCTCOUNT(orders[customer_id]),
+    orders[order_status] = "Completed"
+)
+
+Total Gross Profit = 
+CALCULATE(
+    SUM(order_items[gross_profit]),
+    orders[order_status] = "Completed"
+)
+
+Gross Profit Margin % = 
+DIVIDE([Total Gross Profit], [Total Gross Revenue], 0)
+
+Average Order Value (AOV) = 
+DIVIDE([Total Gross Revenue], [Total Completed Orders], 0)
+
+Average Items Per Order = 
+DIVIDE([Total Units Sold], [Total Completed Orders], 0)
+
+// ------------------------------------------------------------------------------
+// 2. PRODUCT REVENUE & PARETO ANALYSIS (Question 1)
+// ------------------------------------------------------------------------------
+
+Product Revenue Rank = 
+IF(
+    ISBLANK([Total Gross Revenue]),
+    BLANK(),
+    RANKX(ALL(products[product_name]), [Total Gross Revenue], , DESC, DENSE)
+)
+
+Product Revenue Share % = 
+DIVIDE([Total Gross Revenue], CALCULATE([Total Gross Revenue], ALL(products)), 0)
+
+Product Cumulative Revenue = 
+VAR CurrentProductRevenue = [Total Gross Revenue]
+VAR CurrentProductRank = [Product Revenue Rank]
+RETURN
+CALCULATE(
+    [Total Gross Revenue],
+    FILTER(
+        ALL(products[product_name]),
+        [Product Revenue Rank] <= CurrentProductRank
+    )
+)
+
+Product Pareto Cumulative % = 
+DIVIDE(
+    [Product Cumulative Revenue],
+    CALCULATE([Total Gross Revenue], ALL(products)),
+    0
+)
+
+Pareto 80/20 Flag = 
+IF([Product Pareto Cumulative %] <= 0.80, "Top 80% Core Driver", "Long Tail")
+
+// ------------------------------------------------------------------------------
+// 3. TIME INTELLIGENCE & MONTHLY SALES TRENDS (Question 3)
+// ------------------------------------------------------------------------------
+
+Previous Month Sales = 
+CALCULATE(
+    [Total Gross Revenue],
+    PREVIOUSMONTH(DimDate[Date])
+)
+
+MoM Sales Growth Amount = 
+[Total Gross Revenue] - [Previous Month Sales]
+
+MoM Sales Growth % = 
+DIVIDE([MoM Sales Growth Amount], [Previous Month Sales], 0)
+
+Sales Rolling 3 Months Average = 
+AVERAGEX(
+    DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -3, MONTH),
+    [Total Gross Revenue]
+)
+
+Year-to-Date (YTD) Revenue = 
+TOTALYTD([Total Gross Revenue], DimDate[Date])
+
+Previous Year Sales = 
+CALCULATE(
+    [Total Gross Revenue],
+    SAMEPERIODLASTYEAR(DimDate[Date])
+)
+
+YoY Sales Growth % = 
+DIVIDE([Total Gross Revenue] - [Previous Year Sales], [Previous Year Sales], 0)
+
+// ------------------------------------------------------------------------------
+// 4. CATEGORY MOMENTUM & DECLINE DETECTION (Question 4)
+// ------------------------------------------------------------------------------
+
+Previous Quarter Sales = 
+CALCULATE(
+    [Total Gross Revenue],
+    PREVIOUSQUARTER(DimDate[Date])
+)
+
+QoQ Category Sales Growth % = 
+DIVIDE(
+    [Total Gross Revenue] - [Previous Quarter Sales],
+    [Previous Quarter Sales],
+    0
+)
+
+Category Health Status = 
+SWITCH(
+    TRUE(),
+    ISBLANK([Previous Quarter Sales]), "New / Baseline",
+    [QoQ Category Sales Growth %] < -0.15, "Critical Decline",
+    [QoQ Category Sales Growth %] < 0, "Moderate Decline",
+    [QoQ Category Sales Growth %] < 0.15, "Steady Growth",
+    "Rapid Growth"
+)
+
+// ------------------------------------------------------------------------------
+// 5. CUSTOMER VALUATION & RFM SEGMENTATION (Question 2)
+// ------------------------------------------------------------------------------
+
+Customer Lifetime Spend = 
+CALCULATE(
+    SUM(orders[total_amount]),
+    ALLEXCEPT(customers, customers[customer_id]),
+    orders[order_status] = "Completed"
+)
+
+Customer Order Count = 
+CALCULATE(
+    DISTINCTCOUNT(orders[order_id]),
+    ALLEXCEPT(customers, customers[customer_id]),
+    orders[order_status] = "Completed"
+)
+
+Days Since Last Order = 
+VAR MaxOrderDate = 
+    CALCULATE(
+        MAX(orders[order_date]),
+        ALLEXCEPT(customers, customers[customer_id]),
+        orders[order_status] = "Completed"
+    )
+VAR SnapshotDate = CALCULATE(MAX(orders[order_date]), ALL(orders))
+RETURN
+DATEDIFF(MaxOrderDate, SnapshotDate, DAY)
+
+Customer RFM Tier = 
+VAR R = [Days Since Last Order]
+VAR F = [Customer Order Count]
+VAR M = [Customer Lifetime Spend]
+RETURN
+SWITCH(
+    TRUE(),
+    R <= 45 && F >= 6 && M >= 1000, "Champions",
+    R <= 90 && F >= 3 && M >= 500, "Loyal Customers",
+    R <= 45 && F <= 2 && M >= 300, "Potential Loyalists",
+    R <= 45 && F = 1, "New Active Customers",
+    R > 90 && F >= 3 && M >= 500, "At Risk VIPs",
+    R > 90 && M >= 300, "About to Sleep",
+    R > 180, "Lost / Churned",
+    "Standard Retainable"
+)
+
+// ------------------------------------------------------------------------------
+// 6. CHURN RISK & RETENTION METRICS (Question 6)
+// ------------------------------------------------------------------------------
+
+Is Churn Risk Flag = 
+IF([Days Since Last Order] > 90 && [Customer Order Count] >= 2, 1, 0)
+
+At Risk VIP Customer Count = 
+CALCULATE(
+    DISTINCTCOUNT(customers[customer_id]),
+    FILTER(
+        customers,
+        [Days Since Last Order] > 90 && [Customer Lifetime Spend] >= 500
+    )
+)
+
+Churn Risk Ratio % = 
+DIVIDE(
+    CALCULATE(DISTINCTCOUNT(customers[customer_id]), FILTER(customers, [Days Since Last Order] > 90)),
+    DISTINCTCOUNT(customers[customer_id]),
+    0
+)
+
+Customer Retention Priority = 
+SWITCH(
+    TRUE(),
+    [Customer Lifetime Spend] >= 1000 && [Days Since Last Order] > 90, "Priority 1: High Spender Winback ($30 Coupon / Direct Reachout)",
+    [Customer Lifetime Spend] >= 500 && [Days Since Last Order] > 90, "Priority 2: Re-engagement Email (20% Promo)",
+    [Customer Order Count] = 1 && [Days Since Last Order] > 60, "Priority 3: 2nd Purchase Nudge (Free Shipping)",
+    "Priority 4: Regular Marketing Automation"
+)

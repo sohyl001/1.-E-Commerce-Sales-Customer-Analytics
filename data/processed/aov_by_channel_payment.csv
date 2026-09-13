@@ -1,0 +1,13 @@
+sales_channel,payment_method,total_orders,total_revenue,channel_aov
+Mobile App,PayPal,834,346984.13,416.05
+Affiliate,BNPL (Klarna/Affirm),440,179620.44,408.23
+Web,BNPL (Klarna/Affirm),866,339777.04,392.35
+Web,Apple Pay,869,340600.51,391.95
+Web,Credit Card,1663,651276.46,391.63
+Mobile App,Credit Card,1686,659225.64,391.0
+Affiliate,Apple Pay,434,165306.19,380.89
+Mobile App,BNPL (Klarna/Affirm),922,349257.71,378.8
+Affiliate,Credit Card,797,300101.86,376.54
+Affiliate,PayPal,451,167924.88,372.34
+Web,PayPal,817,303611.56,371.62
+Mobile App,Apple Pay,882,321139.26,364.1

@@ -1,0 +1,50 @@
+product_id,product_name,category_id,unit_cost,unit_price,target_margin_pct,is_active
+PRD-0001,Aura Pro Max 5G Smartphone 256GB,CAT-001,420.0,899.99,53.33,1
+PRD-0002,Nexus HyperSlim Smartphone 128GB,CAT-001,280.0,599.99,53.33,1
+PRD-0003,Titan Shield Screen Protector (2-Pack),CAT-001,3.2,19.99,83.99,1
+PRD-0004,MagSafe Fast Wireless Charging Pad,CAT-001,11.5,39.99,71.24,1
+PRD-0005,Zenith Creator 16-inch Laptop (32GB/1TB),CAT-002,850.0,1699.99,50.0,1
+PRD-0006,UltraBook Air 14-inch Laptop (16GB/512GB),CAT-002,520.0,1099.99,52.73,1
+PRD-0007,CurveVision 34-inch Ultrawide 4K Monitor,CAT-002,260.0,549.99,52.73,1
+PRD-0008,ErgoTactile Mechanical Wireless Keyboard,CAT-002,38.0,119.99,68.33,1
+PRD-0009,Precision Flow Multi-Device Laser Mouse,CAT-002,22.0,69.99,68.57,1
+PRD-0010,SonicQuiet Noise Cancelling Headphones,CAT-003,95.0,279.99,66.07,1
+PRD-0011,TrueBeats Pro True Wireless Earbuds,CAT-003,45.0,149.99,70.0,1
+PRD-0012,BoomBox Portable Waterproof Bluetooth Speaker,CAT-003,30.0,89.99,66.66,1
+PRD-0013,StudioMaster USB Condenser Microphone,CAT-003,28.0,79.99,65.0,1
+PRD-0014,Heritage Oxford Button-Down Shirt,CAT-004,16.0,54.99,70.9,1
+PRD-0015,Performance Stretch Chino Trousers,CAT-004,22.0,68.0,67.65,1
+PRD-0016,All-Weather Wool Trench Coat,CAT-004,85.0,220.0,61.36,1
+PRD-0017,Organic Cotton Essential T-Shirt (3-Pack),CAT-004,12.0,39.99,69.99,1
+PRD-0018,Silk Blend Evening Wrap Dress,CAT-005,34.0,115.0,70.43,1
+PRD-0019,SculptFlex High-Waist Athletic Leggings,CAT-005,14.0,58.0,75.86,1
+PRD-0020,Cashmere Blend Soft Knit Cardigan,CAT-005,42.0,135.0,68.89,1
+PRD-0021,Breeze Linen Summer Blouse,CAT-005,15.0,48.0,68.75,1
+PRD-0022,AeroPace Carbon Marathon Running Shoes,CAT-006,48.0,159.99,70.0,1
+PRD-0023,UrbanStride Classic Leather Low Sneakers,CAT-006,32.0,99.99,68.0,1
+PRD-0024,Summit Ridge Waterproof Hiking Boots,CAT-006,55.0,169.99,67.65,1
+PRD-0025,ComfortSlip Memory Foam House Slippers,CAT-006,8.0,29.99,73.32,1
+PRD-0026,BaristaPro Italian Espresso Machine,CAT-007,170.0,449.99,62.22,1
+PRD-0027,AirCrisp XL Digital Dual-Zone Air Fryer,CAT-007,45.0,129.99,65.38,1
+PRD-0028,SmartBlend 1200W Commercial Blender,CAT-007,38.0,109.99,65.45,1
+PRD-0029,RapidBrew Programmable Drip Coffee Maker,CAT-007,18.0,49.99,63.99,1
+PRD-0030,Nordic Minimalist Dimmable Floor Lamp,CAT-008,24.0,79.99,70.0,1
+PRD-0031,Handwoven Moroccan Area Rug 5x7,CAT-008,45.0,149.0,69.8,1
+PRD-0032,AromaTherapy Ceramic Ultrasonic Diffuser,CAT-008,10.0,34.99,71.42,1
+PRD-0033,Geometric Ceramic Planter Set (Set of 3),CAT-008,12.0,39.99,69.99,1
+PRD-0034,IronCore Adjustable Dumbbell Pair (50 lbs),CAT-009,80.0,249.99,68.0,1
+PRD-0035,EcoGrip 6mm Non-Slip Alignment Yoga Mat,CAT-009,12.0,42.0,71.43,1
+PRD-0036,Heavy Duty Resistance Exercise Band Set,CAT-009,6.5,24.99,73.99,1
+PRD-0037,Cast Iron Kettlebell 20kg,CAT-009,20.0,64.99,69.23,1
+PRD-0038,TrailBlazer 4-Person Weatherproof Dome Tent,CAT-010,65.0,189.99,65.79,1
+PRD-0039,SubZero Compact Goose Down Sleeping Bag,CAT-010,40.0,129.99,69.23,1
+PRD-0040,Tactical 45L Molle Hiking Rucksack,CAT-010,26.0,79.99,67.5,1
+PRD-0041,UltraBeam 2000 Lumen Rechargeable Headlamp,CAT-010,9.0,29.99,69.99,1
+PRD-0042,HydraGlow Pure Hyaluronic Acid Serum 50ml,CAT-011,8.0,38.0,78.95,1
+PRD-0043,Botanical Ceramide Barrier Repair Cream,CAT-011,9.5,42.0,77.38,1
+PRD-0044,Superberry Antioxidant Facial Cleanser,CAT-011,6.0,26.0,76.92,1
+PRD-0045,Mineral Invisible Shield Sunscreen SPF 50,CAT-011,7.0,32.0,78.12,1
+PRD-0046,Data Science & Machine Learning Masterclass,CAT-012,9.0,49.99,82.0,1
+PRD-0047,The 10x E-Commerce Scale Blueprint (Hardcover),CAT-012,6.5,34.99,81.42,1
+PRD-0048,Premium Leather-Bound Hardcover Journal,CAT-012,5.0,22.99,78.25,1
+PRD-0049,Executive Matte Black Ballpoint Pen Gift Set,CAT-012,4.0,18.99,78.94,1

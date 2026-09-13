@@ -1,0 +1,13 @@
+category_id,category_name,department,description
+CAT-001,Smartphones & Mobile,Electronics,"Flagship devices, budget phones, and cellular gear"
+CAT-002,Laptops & Computing,Electronics,"High-performance laptops, monitors, and peripherals"
+CAT-003,Audio & Headphones,Electronics,"Wireless earbuds, ANC headphones, and studio monitors"
+CAT-004,Men's Apparel,Fashion,"Casual shirts, trousers, jackets, and formal wear"
+CAT-005,Women's Apparel,Fashion,"Dresses, blouses, activewear, and outerwear"
+CAT-006,Footwear & Sneakers,Fashion,"Running sneakers, casual loafers, and winter boots"
+CAT-007,Kitchen Appliances,Home & Kitchen,"Blenders, air fryers, espresso machines, and toasters"
+CAT-008,Home Decor & Lighting,Home & Kitchen,"Lamps, wall art, indoor planters, and rugs"
+CAT-009,Fitness & Exercise,Sports & Fitness,"Dumbbells, yoga mats, resistance bands, and kettlebells"
+CAT-010,Outdoor & Camping,Sports & Fitness,"Tents, sleeping bags, backpacks, and tactical torches"
+CAT-011,Skincare & Beauty,Beauty & Personal Care,"Serums, moisturizers, cleansers, and organic SPF"
+CAT-012,Books & Stationery,Books & Office,"Tech manuals, entrepreneurship guides, and stationery"

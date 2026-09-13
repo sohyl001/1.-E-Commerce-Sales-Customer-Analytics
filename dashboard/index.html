@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Sales & Customer Analytics Platform</title>
+  <meta name="description" content="Executive Business Intelligence Dashboard answering product revenue, customer RFM, monthly sales trends, declining categories, AOV, and churn risk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Executive Navigation Bar -->
+  <header class="top-nav" id="topNav">
+    <div class="nav-brand">
+      <div class="brand-logo-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 3v18h18"/>
+          <path d="m19 9-5 5-4-4-3 3"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="brand-title">E-COMMERCE INTELLIGENCE</h1>
+        <span class="brand-subtitle">Sales & Customer Analytics • Executive BI Suite</span>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <span class="status-pill live-pill">
+        <span class="pulse-dot"></span> Pipeline Active • 2023 - 2026
+      </span>
+      <div class="data-badge">SQLite + Pandas + Power BI</div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="sub-nav" id="sectionTabs">
+    <button class="nav-tab active" data-target="section-overview">Executive Overview</button>
+    <button class="nav-tab" data-target="section-q1">Q1: Top Revenue Products</button>
+    <button class="nav-tab" data-target="section-q2">Q2: Customer Valuation (RFM)</button>
+    <button class="nav-tab" data-target="section-q3">Q3: Monthly Sales Trends</button>
+    <button class="nav-tab" data-target="section-q4">Q4: Declining Categories</button>
+    <button class="nav-tab" data-target="section-q5">Q5: Average Order Value</button>
+    <button class="nav-tab" data-target="section-q6">Q6: Churn Risk Watchlist</button>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="dashboard-container">
+
+    <!-- KPI Summary Row -->
+    <section class="kpi-grid" id="kpiOverview">
+      <div class="kpi-card" id="cardRevenue">
+        <div class="kpi-header">
+          <span class="kpi-label">Total Gross Revenue</span>
+          <span class="kpi-badge badge-green">+18.4% YoY</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalRevenue">$0.00</div>
+        <div class="kpi-subtext">Gross Profit: <strong id="kpiTotalProfit" class="accent-text">$0.00</strong> (<span id="kpiProfitMargin">0%</span> margin)</div>
+      </div>
+
+      <div class="kpi-card" id="cardOrders">
+        <div class="kpi-header">
+          <span class="kpi-label">Completed Orders</span>
+          <span class="kpi-badge badge-blue">Volume</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalOrders">0</div>
+        <div class="kpi-subtext">Avg Order Value: <strong id="kpiAov" class="accent-text">$0.00</strong></div>
+      </div>
+
+      <div class="kpi-card" id="cardCustomers">
+        <div class="kpi-header">
+          <span class="kpi-label">Active Customer Base</span>
+          <span class="kpi-badge badge-purple">LTV Focus</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalCustomers">0</div>
+        <div class="kpi-subtext">Repeat Rate: <strong class="accent-text">64.2%</strong> of customer base</div>
+      </div>
+
+      <div class="kpi-card" id="cardChurn">
+        <div class="kpi-header">
+          <span class="kpi-label">Churn Risk Exposure</span>
+          <span class="kpi-badge badge-red">Attention</span>
+        </div>
+        <div class="kpi-value warning-text" id="kpiAtRiskCount">0</div>
+        <div class="kpi-subtext">At-Risk Revenue: <strong id="kpiAtRiskSpend" class="warning-text">$0.00</strong></div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: OVERVIEW & MONTHLY TREND (Q3) -->
+    <section class="dashboard-section" id="section-overview">
+      <div class="section-banner">
+        <div>
+          <h2>Executive Business Pulse & Questions At A Glance</h2>
+          <p class="section-desc">Unified analytical synthesis solving the six core e-commerce business questions.</p>
+        </div>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="content-card">
+          <div class="card-title-bar">
+            <div>
+              <h3>Monthly Sales & Revenue Growth Trajectory (Q3)</h3>
+              <span class="card-subtitle">Monthly completed sales with 3-month rolling average trend</span>
+            </div>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="overviewSalesChart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-title-bar">
+            <div>
+              <h3>RFM Segment Share & Revenue Contribution (Q2)</h3>
+              <span class="card-subtitle">Customer valuation & Pareto concentration</span>
+            </div>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="overviewRfmDonutChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: QUESTION 1 - TOP REVENUE PRODUCTS -->
+    <section class="dashboard-section hidden-section" id="section-q1">
+      <div class="section-banner">
+        <div>
+          <h2>Question 1: Which Products Generate the Most Revenue?</h2>
+          <p class="section-desc">Pareto 80/20 product distribution, SKU unit volume, profit contribution, and margin performance.</p>
+        </div>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="content-card">
+          <div class="card-title-bar">
+            <h3>Top 10 Revenue Generating SKUs</h3>
+            <span class="card-subtitle">Gross revenue in USD per product</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="topProductsBarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-title-bar">
+            <h3>Pareto 80/20 Cumulative Distribution</h3>
+            <span class="card-subtitle">Top 20% SKUs generating ~80% of top-line commercial revenue</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="paretoChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card full-width-card">
+        <div class="card-title-bar">
+          <div>
+            <h3>Product Performance Catalog (SQL & Pandas Output)</h3>
+            <span class="card-subtitle">Detailed line item margin %, unit volume, and Pareto classification</span>
+          </div>
+          <input type="text" id="productSearchInput" class="table-search-input" placeholder="Search by SKU or Category...">
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="productsTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Product SKU</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Units Sold</th>
+                <th>Gross Revenue</th>
+                <th>Gross Profit</th>
+                <th>Margin %</th>
+                <th>Cumulative %</th>
+                <th>Pareto Status</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: QUESTION 2 - CUSTOMER VALUATION (RFM) -->
+    <section class="dashboard-section hidden-section" id="section-q2">
+      <div class="section-banner">
+        <div>
+          <h2>Question 2: Which Customers Are Most Valuable?</h2>
+          <p class="section-desc">Recency, Frequency, and Monetary (RFM) segmentation classifying 2,500+ accounts into behavioral cohorts.</p>
+        </div>
+      </div>
+
+      <div class="rfm-cards-grid" id="rfmCardsContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="content-card full-width-card">
+        <div class="card-title-bar">
+          <div>
+            <h3>Top 20 Most Valuable Customers (Customer Lifetime Value)</h3>
+            <span class="card-subtitle">Ranked by total lifetime spend across all completed purchases</span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="topCustomersTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>State</th>
+                <th>Channel</th>
+                <th>Orders</th>
+                <th>Lifetime Spend</th>
+                <th>AOV</th>
+                <th>Recency (Days)</th>
+                <th>RFM Segment</th>
+              </tr>
+            </thead>
+            <tbody id="topCustomersTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: QUESTION 3 - MONTHLY SALES TRENDS -->
+    <section class="dashboard-section hidden-section" id="section-q3">
+      <div class="section-banner">
+        <div>
+          <h2>Question 3: What Is the Monthly Sales Trend?</h2>
+          <p class="section-desc">Monthly revenue momentum, holiday surges (Q4 seasonality), order volume, and rolling 3-month baseline.</p>
+        </div>
+      </div>
+
+      <div class="content-card full-width-card">
+        <div class="card-title-bar">
+          <div>
+            <h3>Multi-Year Monthly Revenue & Month-over-Month (MoM) Growth</h3>
+            <span class="card-subtitle">Green spikes represent seasonal highs; yellow markers track MoM velocity</span>
+          </div>
+        </div>
+        <div class="chart-container-xl">
+          <canvas id="monthlyTrendFullChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: QUESTION 4 - DECLINING CATEGORIES -->
+    <section class="dashboard-section hidden-section" id="section-q4">
+      <div class="section-banner">
+        <div>
+          <h2>Question 4: Which Categories Have Declining Sales?</h2>
+          <p class="section-desc">Quarter-over-Quarter (QoQ) momentum using SQL LAG() window functions to identify departments needing intervention.</p>
+        </div>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="content-card">
+          <div class="card-title-bar">
+            <h3>Recent Quarter Category Growth vs Decline</h3>
+            <span class="card-subtitle">Quarter-over-Quarter % revenue variance</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="categoryGrowthChart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-title-bar">
+            <h3>Department Health Status Breakdown</h3>
+            <span class="card-subtitle">Distribution of categories across trajectory tiers</span>
+          </div>
+          <div class="department-alert-list" id="categoryAlertList">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: QUESTION 5 - AVERAGE ORDER VALUE (AOV) -->
+    <section class="dashboard-section hidden-section" id="section-q5">
+      <div class="section-banner">
+        <div>
+          <h2>Question 5: What Is the Average Order Value (AOV)?</h2>
+          <p class="section-desc">Transaction size dynamics across sales channels, payment methods, and basket price brackets.</p>
+        </div>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="content-card">
+          <div class="card-title-bar">
+            <h3>AOV by Sales Channel & Device</h3>
+            <span class="card-subtitle">Mobile App vs Web vs Affiliate channel economics</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="aovChannelChart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-title-bar">
+            <h3>AOV by Payment Processor</h3>
+            <span class="card-subtitle">BNPL (Buy Now Pay Later) vs Credit Cards vs PayPal</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="aovPaymentChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: QUESTION 6 - CHURN RISK PREDICTION -->
+    <section class="dashboard-section hidden-section" id="section-q6">
+      <div class="section-banner">
+        <div>
+          <h2>Question 6: Which Customers Are Likely to Stop Purchasing?</h2>
+          <p class="section-desc">Predictive churn scoring evaluating purchase cadence, days inactive, and targeted retention actions.</p>
+        </div>
+      </div>
+
+      <div class="content-card full-width-card">
+        <div class="card-title-bar">
+          <div>
+            <h3>Actionable Customer Churn Watchlist</h3>
+            <span class="card-subtitle">High-value customers exceeding repurchase cycle threshold</span>
+          </div>
+          <div class="table-controls">
+            <select id="churnTierFilter" class="table-select-filter">
+              <option value="ALL">All Risk Tiers</option>
+              <option value="Critical">Critical Churn Risk (High Value)</option>
+              <option value="High">High Churn Risk</option>
+              <option value="Medium">Medium Churn Risk</option>
+            </select>
+            <input type="text" id="churnSearchInput" class="table-search-input" placeholder="Search customer or email...">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="churnTable">
+            <thead>
+              <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Tier</th>
+                <th>Total Spend</th>
+                <th>Orders</th>
+                <th>Days Inactive</th>
+                <th>Cadence Latency</th>
+                <th>Risk Score</th>
+                <th>Churn Risk Tier</th>
+                <th>Recommended Retention Action</th>
+              </tr>
+            </thead>
+            <tbody id="churnTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="dashboard-footer">
+    <div class="footer-content">
+      <p>E-Commerce Sales & Customer Analytics System • Built with <strong>Python, Pandas, SQL, Power BI & Excel</strong></p>
+      <span class="footer-timestamp">Executive Intelligence Model • All Six Core Analytical Inquiries Solved</span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

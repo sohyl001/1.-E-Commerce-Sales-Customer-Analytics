@@ -1,0 +1,50 @@
+product_id,product_name,category_name,department,unit_price,unit_cost,total_orders,units_sold,total_revenue,total_gross_profit,profit_margin_pct,pct_of_total_revenue,cumulative_revenue_pct,pareto_classification
+PRD-0005,Zenith Creator 16-inch Laptop (32GB/1TB),Laptops & Computing,Electronics,1699.99,850.0,409,484,780125.16,368725.16,47.26,19.11,19.11,Core 80% Driver (Pareto Top Tier)
+PRD-0006,UltraBook Air 14-inch Laptop (16GB/512GB),Laptops & Computing,Electronics,1099.99,520.0,429,528,553294.72,278734.72,50.38,13.55,32.66,Core 80% Driver (Pareto Top Tier)
+PRD-0001,Aura Pro Max 5G Smartphone 256GB,Smartphones & Mobile,Electronics,899.99,420.0,447,535,457509.65,232809.65,50.89,11.21,43.87,Core 80% Driver (Pareto Top Tier)
+PRD-0002,Nexus HyperSlim Smartphone 128GB,Smartphones & Mobile,Electronics,599.99,280.0,475,586,334314.14,170234.14,50.92,8.19,52.06,Core 80% Driver (Pareto Top Tier)
+PRD-0007,CurveVision 34-inch Ultrawide 4K Monitor,Laptops & Computing,Electronics,549.99,260.0,443,543,284014.57,142834.57,50.29,6.96,59.02,Core 80% Driver (Pareto Top Tier)
+PRD-0026,BaristaPro Italian Espresso Machine,Kitchen Appliances,Home & Kitchen,449.99,170.0,333,392,167486.08,100846.08,60.21,4.1,63.12,Core 80% Driver (Pareto Top Tier)
+PRD-0010,SonicQuiet Noise Cancelling Headphones,Audio & Headphones,Electronics,279.99,95.0,354,422,112219.78,72129.78,64.28,2.75,65.87,Core 80% Driver (Pareto Top Tier)
+PRD-0034,IronCore Adjustable Dumbbell Pair (50 lbs),Fitness & Exercise,Sports & Fitness,249.99,80.0,371,458,108970.42,72330.42,66.38,2.67,68.54,Core 80% Driver (Pareto Top Tier)
+PRD-0016,All-Weather Wool Trench Coat,Men's Apparel,Fashion,220.0,85.0,378,466,97746.0,58136.0,59.48,2.39,70.94,Core 80% Driver (Pareto Top Tier)
+PRD-0024,Summit Ridge Waterproof Hiking Boots,Footwear & Sneakers,Fashion,169.99,55.0,348,415,67451.85,44626.85,66.16,1.65,72.59,Core 80% Driver (Pareto Top Tier)
+PRD-0022,AeroPace Carbon Marathon Running Shoes,Footwear & Sneakers,Fashion,159.99,48.0,363,432,65435.68,44699.68,68.31,1.6,74.19,Core 80% Driver (Pareto Top Tier)
+PRD-0011,TrueBeats Pro True Wireless Earbuds,Audio & Headphones,Electronics,149.99,45.0,376,449,63805.51,43600.51,68.33,1.56,75.75,Core 80% Driver (Pareto Top Tier)
+PRD-0020,Cashmere Blend Soft Knit Cardigan,Women's Apparel,Fashion,135.0,42.0,384,467,59899.5,40285.5,67.26,1.47,77.22,Core 80% Driver (Pareto Top Tier)
+PRD-0027,AirCrisp XL Digital Dual-Zone Air Fryer,Kitchen Appliances,Home & Kitchen,129.99,45.0,385,476,58534.24,37114.24,63.41,1.43,78.66,Core 80% Driver (Pareto Top Tier)
+PRD-0008,ErgoTactile Mechanical Wireless Keyboard,Laptops & Computing,Electronics,119.99,38.0,413,510,57966.9,38586.9,66.57,1.42,80.08,Long Tail Product
+PRD-0038,TrailBlazer 4-Person Weatherproof Dome Tent,Outdoor & Camping,Sports & Fitness,189.99,65.0,250,307,55030.43,35075.43,63.74,1.35,81.42,Long Tail Product
+PRD-0018,Silk Blend Evening Wrap Dress,Women's Apparel,Fashion,115.0,34.0,344,429,46925.75,32339.75,68.92,1.15,82.57,Long Tail Product
+PRD-0028,SmartBlend 1200W Commercial Blender,Kitchen Appliances,Home & Kitchen,109.99,38.0,375,449,46921.51,29859.51,63.64,1.15,83.72,Long Tail Product
+PRD-0031,Handwoven Moroccan Area Rug 5x7,Home Decor & Lighting,Home & Kitchen,149.0,45.0,248,301,42621.45,29076.45,68.22,1.04,84.77,Long Tail Product
+PRD-0023,UrbanStride Classic Leather Low Sneakers,Footwear & Sneakers,Fashion,99.99,32.0,363,441,41820.59,27708.59,66.26,1.02,85.79,Long Tail Product
+PRD-0039,SubZero Compact Goose Down Sleeping Bag,Outdoor & Camping,Sports & Fitness,129.99,40.0,280,333,41128.67,27808.67,67.61,1.01,86.8,Long Tail Product
+PRD-0012,BoomBox Portable Waterproof Bluetooth Speaker,Audio & Headphones,Electronics,89.99,30.0,365,432,36949.68,23989.68,64.93,0.91,87.7,Long Tail Product
+PRD-0009,Precision Flow Multi-Device Laser Mouse,Laptops & Computing,Electronics,69.99,22.0,429,515,34161.85,22831.85,66.83,0.84,88.54,Long Tail Product
+PRD-0013,StudioMaster USB Condenser Microphone,Audio & Headphones,Electronics,79.99,28.0,359,451,34123.49,21495.49,62.99,0.84,89.38,Long Tail Product
+PRD-0015,Performance Stretch Chino Trousers,Men's Apparel,Fashion,68.0,22.0,372,452,29236.6,19292.6,65.99,0.72,90.09,Long Tail Product
+PRD-0037,Cast Iron Kettlebell 20kg,Fitness & Exercise,Sports & Fitness,64.99,20.0,370,445,27503.55,18603.55,67.64,0.67,90.77,Long Tail Product
+PRD-0019,SculptFlex High-Waist Athletic Leggings,Women's Apparel,Fashion,58.0,14.0,378,471,26033.3,19439.3,74.67,0.64,91.4,Long Tail Product
+PRD-0030,Nordic Minimalist Dimmable Floor Lamp,Home Decor & Lighting,Home & Kitchen,79.99,24.0,270,311,23640.89,16176.89,68.43,0.58,91.98,Long Tail Product
+PRD-0040,Tactical 45L Molle Hiking Rucksack,Outdoor & Camping,Sports & Fitness,79.99,26.0,255,302,22940.98,15088.98,65.77,0.56,92.55,Long Tail Product
+PRD-0014,Heritage Oxford Button-Down Shirt,Men's Apparel,Fashion,54.99,16.0,333,418,21814.32,15126.32,69.34,0.53,93.08,Long Tail Product
+PRD-0046,Data Science & Machine Learning Masterclass,Books & Stationery,Books & Office,49.99,9.0,375,456,21755.44,17651.44,81.14,0.53,93.61,Long Tail Product
+PRD-0029,RapidBrew Programmable Drip Coffee Maker,Kitchen Appliances,Home & Kitchen,49.99,18.0,360,448,21315.52,13251.52,62.17,0.52,94.14,Long Tail Product
+PRD-0043,Botanical Ceramide Barrier Repair Cream,Skincare & Beauty,Beauty & Personal Care,42.0,9.5,423,523,20878.2,15909.7,76.2,0.51,94.65,Long Tail Product
+PRD-0042,HydraGlow Pure Hyaluronic Acid Serum 50ml,Skincare & Beauty,Beauty & Personal Care,38.0,8.0,435,548,19811.3,15427.3,77.87,0.49,95.13,Long Tail Product
+PRD-0021,Breeze Linen Summer Blouse,Women's Apparel,Fashion,48.0,15.0,332,420,19068.0,12768.0,66.96,0.47,95.6,Long Tail Product
+PRD-0004,MagSafe Fast Wireless Charging Pad,Smartphones & Mobile,Electronics,39.99,11.5,387,476,18063.24,12589.24,69.7,0.44,96.04,Long Tail Product
+PRD-0045,Mineral Invisible Shield Sunscreen SPF 50,Skincare & Beauty,Beauty & Personal Care,32.0,7.0,450,562,17150.4,13216.4,77.06,0.42,96.46,Long Tail Product
+PRD-0035,EcoGrip 6mm Non-Slip Alignment Yoga Mat,Fitness & Exercise,Sports & Fitness,42.0,12.0,349,426,16999.5,11887.5,69.93,0.42,96.88,Long Tail Product
+PRD-0017,Organic Cotton Essential T-Shirt (3-Pack),Men's Apparel,Fashion,39.99,12.0,362,433,16471.67,11275.67,68.45,0.4,97.28,Long Tail Product
+PRD-0047,The 10x E-Commerce Scale Blueprint (Hardcover),Books & Stationery,Books & Office,34.99,6.5,365,445,14777.8,11885.3,80.43,0.36,97.64,Long Tail Product
+PRD-0044,Superberry Antioxidant Facial Cleanser,Skincare & Beauty,Beauty & Personal Care,26.0,6.0,449,548,13566.8,10278.8,75.76,0.33,97.98,Long Tail Product
+PRD-0025,ComfortSlip Memory Foam House Slippers,Footwear & Sneakers,Fashion,29.99,8.0,366,449,12735.01,9143.01,71.79,0.31,98.29,Long Tail Product
+PRD-0033,Geometric Ceramic Planter Set (Set of 3),Home Decor & Lighting,Home & Kitchen,39.99,12.0,244,304,11572.96,7924.96,68.48,0.28,98.57,Long Tail Product
+PRD-0036,Heavy Duty Resistance Exercise Band Set,Fitness & Exercise,Sports & Fitness,24.99,6.5,393,468,11161.57,8119.57,72.75,0.27,98.84,Long Tail Product
+PRD-0032,AromaTherapy Ceramic Ultrasonic Diffuser,Home Decor & Lighting,Home & Kitchen,34.99,10.0,257,323,10771.52,7541.52,70.01,0.26,99.11,Long Tail Product
+PRD-0048,Premium Leather-Bound Hardcover Journal,Books & Stationery,Books & Office,22.99,5.0,372,453,9929.17,7664.17,77.19,0.24,99.35,Long Tail Product
+PRD-0003,Titan Shield Screen Protector (2-Pack),Smartphones & Mobile,Electronics,19.99,3.2,426,525,9919.75,8239.75,83.06,0.24,99.59,Long Tail Product
+PRD-0041,UltraBeam 2000 Lumen Rechargeable Headlamp,Outdoor & Camping,Sports & Fitness,29.99,9.0,262,311,8882.89,6083.89,68.49,0.22,99.81,Long Tail Product
+PRD-0049,Executive Matte Black Ballpoint Pen Gift Set,Books & Stationery,Books & Office,18.99,4.0,356,425,7655.6,5955.6,77.79,0.19,100.0,Long Tail Product
